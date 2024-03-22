@@ -4,11 +4,15 @@
 
 @model BookListViewModel
 
-    <h1>Drew's Bangin' BookStore</h1>
+<h1>"Go read some books!"</h1>
 
-        @foreach (Book b in Model.Books)
-    {
-        <h3>Title: @b.Title</h3>
+@foreach (Book b in Model.Books)
+{
+    <div class="card m-1 p-1">
+        <h4>
+            Title: @b.Title
+            <span class="badge rounded-pill bg-primary text-white float-end"><small>Price: $@b.Price</small></span>
+        </h4>
 
         <ul>
             <li>Author: @b.Author</li>
@@ -18,8 +22,10 @@
             <li>Number of pages: @b.PageCount</li>
             <li>Price: @b.Price</li>
         </ul>
-        
-    }
+    </div>
+
+
+}
 
 <div page-model="@Model.PaginationInfo" page-action="Index"></div>
 
